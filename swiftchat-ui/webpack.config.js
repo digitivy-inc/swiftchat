@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
 
   // webpack will take the files from ./src/index
@@ -13,14 +14,13 @@ module.exports = {
 
   // adding .ts and .tsx to resolve.extensions will help babel look for .ts and .tsx files to transpile
   resolve: {
-    extensions: ['.ts', '.tsx', '.js','.jsx']
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '/index.ts', '/index.tsx', '/index.js', '/index.jsx']
   },
 
   module: {
     rules: [
-
-        // we use awesome-typescript-loader to load our tsx and ts files
-        { test: /\.(tsx|ts)?$/, loader: "awesome-typescript-loader" },
+      // we use awesome-typescript-loader to load our tsx and ts files
+      { test: /\.(tsx|ts)?$/, loader: "awesome-typescript-loader" },
       {
         test: /\.(jsx|js)?$/,
         exclude: /node_modules/,
@@ -42,7 +42,10 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html'
+      template: './public/index.html'
     })
-  ]
+  ],
+  devServer: {
+    historyApiFallback: true
+  }
 };

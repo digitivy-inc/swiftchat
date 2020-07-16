@@ -1,11 +1,16 @@
 {
-    "presets": [
-        "@babel/preset-env",
-        "@babel/preset-typescript",
-        "@babel/preset-react"
-    ],
-    "plugins": [
+  "env": {
+    "production": {
+      "presets": ["@babel/preset-env", "@babel/preset-react"],
+      "plugins": [
         "@babel/proposal-class-properties",
         "@babel/proposal-object-rest-spread"
-    ]
+      ]
+    },
+    "test": {
+        "presets": [
+            "env", {"targets": {"node": "current"}}
+        ]
+    }
+  }
 }

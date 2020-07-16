@@ -1,23 +1,22 @@
 import React from 'react';
-type AppState = {
-    name: string;
-    email: string;
-}
+import {
+  Paper,
+  Typography
+} from '@material-ui/core';
 
-class App extends React.PureComponent<{}, AppState> {
-    state = {
-        name: "siva",
-        email: "digitivy@gmail.com"
-    }
-    render() {
-        return (
-            <div>
-                <h1>Hello World!</h1>
-                <p>{this.state.name}</p>
-                <p>{this.state.email}</p>
-            </div>
-        );
-    }
-}
+const styles = {
+  paper: {
+    height: '25em',
+    margin: '5em',
+  }
+};
 
-export default App;
+export default () => {
+  return (
+    <Paper style={styles.paper}>
+      <Typography variant="h3" component="div">
+        Welcome to Swift Chat!
+      </Typography>
+    </Paper>
+  );
+};
